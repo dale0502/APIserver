@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCartItemRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use App\Models\CartItem;
 
 class CartItemController extends Controller
@@ -34,13 +36,13 @@ class CartItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCartItemRequest $request)
     {
-        $form = $request->all(); //取得資料
+        $validated = $request->validated();
         DB::table('cart_items')->insert([
-            'cart_id' => $form['cart_id'],
-            'product_id' => $form['product_id'],
-            'quantity' => $form['quantity'],
+            'cart_id' => $validated ['cart_id'],
+            'product_id' => $validated ['product_id'],
+            'quantity' => $validated ['quantity'],
             'created_at' =>now(),
             'updated_at' =>now()
         ]);
