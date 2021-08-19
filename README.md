@@ -30,5 +30,5 @@
 * 使用Laravel Framework 8.54.0 
 * 使用PHP 7.4.19
 * 8/18 完成購物車CRUD
-* 8/19 增加Validation
+* 8/19 增加Validation、完成Auth會員註冊/登入/登出功能
 
