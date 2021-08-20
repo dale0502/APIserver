@@ -11,4 +11,17 @@ class CartItem extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    protected $fillable = ['product_id' ,'quantity'];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
+
 }
