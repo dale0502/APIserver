@@ -12,7 +12,7 @@ class CartItem extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['product_id' ,'quantity'];
+    protected $guarded = [''];
 
     public function product()
     {
