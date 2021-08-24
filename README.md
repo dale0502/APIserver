@@ -29,7 +29,9 @@
 
 * 使用Laravel Framework 8.54.0 
 * 使用PHP 7.4.19
+* 使用POSTMAN進行測試
 * 8/18 完成購物車CRUD
 * 8/19 增加Validation、完成Auth會員註冊/登入/登出功能
 * 8/20 將DB方式改為Model方式執行Query Builder、購物車與會員功能整合
+* 8/24 完成結帳功能
 

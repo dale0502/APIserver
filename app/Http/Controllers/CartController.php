@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cart;
+use App\Models\User;
 
 class CartController extends Controller
 {
@@ -29,6 +30,20 @@ class CartController extends Controller
                                          ->firstOrCreate(['user_id' => $user->id]);
         return response($cart);
 
+    }
+
+
+    public function checkout()
+    {
+        $user = auth()->user();
+        $cart = $user->carts()->where('checkouted' , false)->with('cartItems')->first();
+        if($cart){
+            $result = $cart->checkout();
+            return response($result);
+        }
+        else{
+            return response('沒有購物車', 400);
+        }
     }
 
     /**
