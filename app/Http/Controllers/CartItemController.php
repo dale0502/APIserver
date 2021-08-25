@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCartItemRequest;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\Product;
 
 class CartItemController extends Controller
 {
@@ -39,9 +40,15 @@ class CartItemController extends Controller
     public function store(StoreCartItemRequest $request)
     {
         $validated = $request->validated();
+
+        $product = Product::find( $validated ['product_id']);
+        if(!$product->checkQuantity($validated ['product_id'])){
+            return response($product->title.'數量不足' , 400);
+        }
+
         $cart = Cart::find($validated['cart_id']);
         $result = $cart->cartItems()->create([
-            'product_id' => $validated ['product_id'],
+            'product_id' => $product->id,
             'quantity' => $validated ['quantity']
         ]);
         return response()->json($result);
