@@ -25,7 +25,7 @@
 
 
 ### 三、個人作業說明
-附上撰寫作業筆記連結供其他學員參考: [Notion 筆記](https://acute-beam-7c6.notion.site/APIsever-0bbcf94cbb4e44d5b3744220ed855752) 
+附上撰寫作業筆記連結: [Notion 筆記](https://acute-beam-7c6.notion.site/Laravel-100-fa6cac2fa45049e7b55d6f2df7bc0d7c) 
 
 * 使用Laravel Framework 8.54.0 
 * 使用PHP 7.4.19
